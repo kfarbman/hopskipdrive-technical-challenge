@@ -1,7 +1,46 @@
-1. What are your main recommendations based on the data? 
+1. Recommendations
 
-My main recommendations are to try 
+From the data, I found that the average number of boosts is 5. I would like to test different boosting/pricing strategies to see if we can keep the number of boosts under 5. I'd like to run my models with different boosting strategies to see if we can increase the likelihood that a ride will be claimed sooner, for the lowest price. Once those models have shown promising results, I'd like to run A/B tests to see how those strategies affect pricing in real world situations.
 
-2. What other data might you want or need to test assumptions or improve model performance? 
+From the model predicting the likelihood of a ride being claimed within a certain number of boosts (adjustable, but I'd probably set it at 3 or 5), I would get a baseline of likelihood from a model including no boost information and only information from the original request. Then, I'd use some boost information to see how that original likelihood changes. We can use existing boost information and then try with different boost amounts to see the changes.
+
+I'd also like to see a model that predicts total price that a ride will go for, but I didn't have time to train a model like that. It could be supervised learning that makes predictions based on similar rides, or I could try clustering to group similar rides and find out if there is a price similarity between any rides that would make sense to price them similarly and not need as many boosts to get it picked up.
+
+From the time series-type model that predicts whether a ride will be claimed after a boost, we can try updating the boosts or adding another "potential boost" column to see how that affects the likelihood of a ride being picked up.
+
+Another tactic I would want to try would be to start with a larger boost and decrease the boost amount as it gets closer to the ride, or maybe even start with the highest price on offer and see what happens as the price decreases instead of gets boosted. Would that make drivers pick them up faster?
+
+My other recommendation would be to see what happens if you offer a bonus for rides picked up within a certain number of minutes that is around the price of what it would be if it was boosted 5 times. That may help the ride get picked up faster without costing too much more than the average boosted ride.
+
+
+
+2. Other data needed 
+
+Other data I would want:
+-How long the ride will be (distance)
+-How far away it is (distance)
+-Seasonality (weather conditions, traffic, back-to-school, etc)
+-Are drivers choosing between multiple rides at the same time
+-How long before the ride was it requested, what day of the week, what time of day, how long between boosts (in real data, it will be more impactful)
+-Data on why drivers are waiting - is it just to get more money or is it for other reasons (they didn't see the ride, any of the other points from above, etc)
+-How long after the boost was it claimed?
+
+
+
 3. How confident are you that the assumptions you made will generate improved outcomes? 
-4. Write up a short description of any toolkits or processes that you believe would improve the workflow, the process, or the model performance. It is acceptable if you see none. 5. Assume that this model is performant. What steps would you take to deliver the predictions or results routinely and at scale? 
+
+I would need to see additional data and try my suggestions above (models and A/B tests) to have a good answer on that, but I am sure that with more exploration, we will be able to generate improved outcomes with some combination of these methods.
+
+I like to try different approaches and compare the outcomes of the approaches to choose a direction based on what the data is telling me. Here, I don't feel that I have the necessary data (or data quality - since it is synthetic) to conclusively determine the direction I'd like to go in.
+
+
+
+4. Write up a short description of any toolkits or processes that you believe would improve the workflow, the process, or the model performance. It is acceptable if you see none. 
+
+A/B testing is a process that I feel would improve the process. I know that it takes time to complete, but results will be much more concrete when we can statistically test them. For delivering results routinely, as the next question asks, I would want a tool like Airflow or something to schedule/trigger runs of the model.
+
+
+
+5. Assume that this model is performant. What steps would you take to deliver the predictions or results routinely and at scale? 
+
+One model that I didn't train here would be a model that predicts total price that the ride will be picked up for. That should be something that is easy to predict based on other similar rides (distance, location, timeframe, etc). For this model, I think it would be great to trigger the model generating a prediction for each ride as it is requested. That way, we have a ballpark of the price that a ride will be claimed at, and we can adjust the pricing nad boosts accordingly to get it picked up faster. 
