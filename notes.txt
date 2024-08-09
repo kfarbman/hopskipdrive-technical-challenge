@@ -1,0 +1,39 @@
+Other data I would want:
+-How long the ride will be
+-How far away it is
+-What day of the week
+-What time of day
+-Seasonality (weather conditions, traffic, back-to-school, etc)
+-Are drivers choosing between multiple rides at the same time
+-How long before the ride was it requested
+-Data on why drivers are waiting - is it just to get more money or is it for other reasons (they didn't see the ride, any of the other points from above, etc)
+-Time since boost
+
+Questions:
+-Is driver supply at the time of the request or number of drivers that will be driving when the ride takes place?
+-If it is drivers at the time of rquest, how do we know how many people are planning on driving when the ride happens?
+-Why would base_plus_boost matter?
+-Is time between boosts always 5 minutes, or does that change in the real data? I'd be curious to look at time between boosts or since last boost
+
+Complications with synthetic data:
+-Average boosts is around 5 for all metro areas, and it's pretty uniformly distributed - is that typical?
+-Day and time of the ride and the request time are all just increasing by an hour, so it's not something to consider here
+-A BIG challenge with this data is not being able to use performance as a tool for improvement - if a model isn't performing well, I can't say if it's a bad approach or if it's just the synthetic data
+
+Ideas:
+-Maybe start off with a higher price and decrease as it goes on so drivers will pick it up sooner
+-Maybe have the first boost be a large one and then decrease the boost amount as it goes on
+-Maybe offer a bonus (or some other incentive) to drivers who pick rides up within a certain number of boosts (less than 5) that is slightly less than the price increase would be with 5 boosts
+-Try A/B testing some of these methods
+-Cluster rides to group similar rides - similar boosting patterns may appear
+-Try having a baseline model with no boost information, getting a probability of a ride being picked up within a certain amount of time, and then adding a boost model to see what the impact of different boosting strategies is on the likelihood of pickup within a certain amount of time
+
+Thoughts:
+-There are not really enough features from prior to boosting to predict how much the price will increase or how many boosts will be needed
+-Picking up rides sooner can save the company money by saving other teams from working on getting a driver and having happier returning customers - how much more can we pay up front to drivers to make that even out?
+-I like to try different approaches and compare the insights from the approaches to figure out which is more useful
+
+Observations:
+-The average total price is about $5 higher for claimed rides than when they are not claimed
+-The average total boost amount when claimed is about $10 over the base price
+-The total price tends to be higher when there are fewer available drivers
