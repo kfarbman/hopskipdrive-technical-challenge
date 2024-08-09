@@ -1,9 +1,12 @@
 Files for Karen Settles's HopSkipDrive Data Scientist technical challenge.
 
-For complete work, you'll want to check out Write-up.txt and the two model notebooks.
-For more context and scratch work, you can check out the files in the scratch work folder.
-For datasets created and used, look in the data folder.
+## Info
+* For complete work, you'll want to check out Write-up.txt and the two model notebooks.
+* For more context and scratch work, you can check out the files in the scratch work folder.
+* For datasets created and used, look in the data folder.
 
+## Repo structure
+```
 ├── data (contains csv files from assignment and datasets for models)
 |     ├── boost_df.csv (raw data from assignment)
 |     ├── boost_model_dataset.csv (dataset for model predicting number of boosts)
@@ -15,3 +18,4 @@ For datasets created and used, look in the data folder.
 ├── boost_timeseries_model.ipynb (notebook containing model predicting whether next ride will be claimed and related work)
 ├── Write-up.txt (contains answers to questions from assignment)
 └── README.md
+```
