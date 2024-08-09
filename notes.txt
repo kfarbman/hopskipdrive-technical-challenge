@@ -11,6 +11,7 @@ Other data I would want:
 
 Questions:
 -Is driver supply at the time of the request or number of drivers that will be driving when the ride takes place?
+-If it is drivers at the time of rquest, how do we know how many people are planning on driving when the ride happens?
 -Why would base_plus_boost matter?
 -Is time between boosts always 5 minutes, or does that change in the real data? I'd be curious to look at time between boosts or since last boost
 
@@ -25,6 +26,7 @@ Ideas:
 -Maybe offer a bonus (or some other incentive) to drivers who pick rides up within a certain number of boosts (less than 5) that is slightly less than the price increase would be with 5 boosts
 -Try A/B testing some of these methods
 -Cluster rides to group similar rides - similar boosting patterns may appear
+-Try having a baseline model with no boost information, getting a probability of a ride being picked up within a certain amount of time, and then adding a boost model to see what the impact of different boosting strategies is on the likelihood of pickup within a certain amount of time
 
 Thoughts:
 -There are not really enough features from prior to boosting to predict how much the price will increase or how many boosts will be needed

@@ -1,0 +1,7 @@
+1. What are your main recommendations based on the data? 
+
+My main recommendations are to try 
+
+2. What other data might you want or need to test assumptions or improve model performance? 
+3. How confident are you that the assumptions you made will generate improved outcomes? 
+4. Write up a short description of any toolkits or processes that you believe would improve the workflow, the process, or the model performance. It is acceptable if you see none. 5. Assume that this model is performant. What steps would you take to deliver the predictions or results routinely and at scale? 
